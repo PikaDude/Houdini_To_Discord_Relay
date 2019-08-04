@@ -11,7 +11,7 @@ class Houdini_To_Discord_Relay(object):
     zope.interface.implements(Plugin)
 
     author = "PikaDude"
-    version = 1.0
+    version = 1.1
     description = "Relay chat from Club Penguin to Discord."
 
     discordWebhookURL = 'Fill me!'
