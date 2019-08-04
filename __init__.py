@@ -28,10 +28,10 @@ class Houdini_To_Discord_Relay(object):
         self.logger.info("Houdini to Discord has loaded.")
 
     def handleMessage(self, player, data):
-        requests.post(url = self.discordWebhookURL, data = { "content": player.user.Username + ": " + data.Message })
+        requests.post(url = self.discordWebhookURL, data = { "content": "**" + player.user.Username + "**: " + data.Message })
 
     def handleLogin(self, player, data):
-        requests.post(url = self.discordWebhookURL, data = { "content": data.Username + " joined the server." })
+        requests.post(url = self.discordWebhookURL, data = { "content": "***" + data.Username + "** joined the server*" })
 
     def handleDisconnection(self, player):
-        requests.post(url = self.discordWebhookURL, data = { "content": player.user.Username + " left the server." })
+        requests.post(url = self.discordWebhookURL, data = { "content": "***" + player.user.Username + "** left the server*" })
