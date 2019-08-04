@@ -3,7 +3,7 @@ Relay chat from [Houdini](https://github.com/Solero/Houdini) to [Discord](https:
 
 # Previews
 ![](https://i.am-a.ninja/Ds7aJWL.png)
-![](https://i.am-a.ninja/odeK9sf.png)
+![](https://i.am-a.ninja/auxmrmW.png)
 
 # Installation
 1. Run `git clone https://github.com/PikaDude/Houdini_To_Discord_Relay.git` in `Houdini/Plugins`
