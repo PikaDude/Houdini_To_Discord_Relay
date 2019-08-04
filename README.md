@@ -1,6 +1,10 @@
 # Houdini To Discord Relay
 Relay chat from [Houdini](https://github.com/Solero/Houdini) to [Discord](https://discordapp.com).
 
+# Previews
+![](https://i.am-a.ninja/Ds7aJWL.png)
+![](https://i.am-a.ninja/odeK9sf.png)
+
 # Installation
 1. Run `git clone https://github.com/PikaDude/Houdini_To_Discord_Relay.git` in `Houdini/Plugins`
 2. Move into the `Houdini_To_Discord_Relay` directory
@@ -16,7 +20,3 @@ Relay chat from [Houdini](https://github.com/Solero/Houdini) to [Discord](https:
 3. Give it a cool name and icon if you want.
 4. Copy the webhook URL and set `discordWebhookURL`'s value to it.  
 ![](https://i.am-a.ninja/3rMy1Gi.png)
-
-# Previews
-![](https://i.am-a.ninja/Ds7aJWL.png)
-![](https://i.am-a.ninja/odeK9sf.png)
