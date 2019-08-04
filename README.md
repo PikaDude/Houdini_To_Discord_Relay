@@ -1,4 +1,4 @@
-# Houdini-To-Discord-Relay
+# Houdini To Discord Relay
 Relay chat from [Houdini](https://github.com/Solero/Houdini) to [Discord](https://discordapp.com).
 
 # Installation
