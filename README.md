@@ -1,9 +1,9 @@
-# Houdini To Discord Relay
+# Houdini To Discord Relay v1.2
 Relay chat from [Houdini](https://github.com/Solero/Houdini) to [Discord](https://discordapp.com).
 
 # Previews
-![](https://i.am-a.ninja/Ds7aJWL.png)
-![](https://i.am-a.ninja/auxmrmW.png)
+![](https://i.am-a.ninja/4XBgcXX.png)
+![](https://i.am-a.ninja/12rfGgb.png)
 
 # Installation
 1. Run `git clone https://github.com/PikaDude/Houdini_To_Discord_Relay.git` in `Houdini/Plugins`
