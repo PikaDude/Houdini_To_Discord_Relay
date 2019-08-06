@@ -1,8 +1,6 @@
-import requests
+import zope.interface, logging, requests
 
-import zope.interface, logging
-from twisted.internet import reactor
-
+from twisted.internet import reactor, task
 from Houdini.Plugins import Plugin
 from Houdini.Handlers import Handlers
 from Houdini.Events import Events
@@ -11,10 +9,12 @@ class Houdini_To_Discord_Relay(object):
     zope.interface.implements(Plugin)
 
     author = "PikaDude"
-    version = 1.1
+    version = 1.2
     description = "Relay chat from Club Penguin to Discord."
 
     discordWebhookURL = 'Fill me!'
+
+    messageQueue = []
 
     def __init__(self, server):
         self.logger = logging.getLogger("Houdini")
@@ -24,14 +24,25 @@ class Houdini_To_Discord_Relay(object):
         Handlers.Login += self.handleLogin
         Events.Disconnected += self.handleDisconnection
 
+        l = task.LoopingCall(self.runMessageQueue)
+        l.start(0.5)
+
     def ready(self):
         self.logger.info("Houdini to Discord has loaded.")
 
     def handleMessage(self, player, data):
-        requests.post(url = self.discordWebhookURL, data = { "content": "**" + player.user.Username + "**: " + data.Message })
+        self.messageQueue.append("[" + player.room.Name + "] **" + player.user.Username + "**: " + data.Message)
 
     def handleLogin(self, player, data):
-        requests.post(url = self.discordWebhookURL, data = { "content": "***" + data.Username + "** joined the server*" })
+        self.messageQueue.append("***" + data.Username + "** joined the server*")
 
     def handleDisconnection(self, player):
-        requests.post(url = self.discordWebhookURL, data = { "content": "***" + player.user.Username + "** left the server*" })
+        self.messageQueue.append("***" + player.user.Username + "** left the server*")
+
+    def runMessageQueue(self):
+        if len(self.messageQueue) == 0: pass
+        else:
+            message = "\n".join(self.messageQueue)
+            del self.messageQueue [:]
+            requests.post(url = self.discordWebhookURL, data = { "content": message })
+            pass
